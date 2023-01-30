@@ -34,6 +34,15 @@ Teachers Create
         <input name="office_number" type="text" class="form-control">
     </div>
 
+    <div>
+        @foreach ($courses as $course)
+            <label for="">
+                <input type="checkbox" name="courses[]" value="{{$course->id}}">
+                {{$course->name}}
+            </label>
+        @endforeach
+    </div>
+
     <button class="btn btn-primary">Crea</button>
 
 </form>

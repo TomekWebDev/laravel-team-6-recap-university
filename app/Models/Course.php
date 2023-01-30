@@ -18,7 +18,13 @@ class Course extends Model
         
     ];
 
+
     public function exams(){
         return $this->hasMany('App\Models\Exam');
-    }
+        }
+
+    public function teachers(){
+        return $this->belongsToMany('App\Models\Teacher');
+
+    
 }
