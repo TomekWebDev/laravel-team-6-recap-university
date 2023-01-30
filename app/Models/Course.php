@@ -16,4 +16,8 @@ class Course extends Model
         'cfu',
         'website'
     ];
+
+    public function teachers(){
+        return $this->belongsToMany('App\Models\Teacher');
+    }
 }
