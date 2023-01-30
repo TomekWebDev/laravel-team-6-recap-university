@@ -15,9 +15,16 @@ class Course extends Model
         'year',
         'cfu',
         'website'
+        
     ];
+
+
+    public function exams(){
+        return $this->hasMany('App\Models\Exam');
+        }
 
     public function teachers(){
         return $this->belongsToMany('App\Models\Teacher');
-    }
+
+    
 }

@@ -26,8 +26,21 @@ Exams Create
         <input name="address" type="text" class="form-control">
     </div>
 
+    <div class="mb-3">
+        <label class="form-label">Course</label>
+        <select class="form-control" name="course_id" id="">
+            @foreach ($courses as $course)
+                <option value="{{ $course->id }}">
+                    {{ $course->name }}
+                </option>
+            @endforeach
+        </select>
+    </div>
+
     <button class="btn btn-primary">Crea</button>
 
 </form>
+
+
 
 @endsection
