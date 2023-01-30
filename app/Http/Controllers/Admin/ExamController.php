@@ -29,8 +29,9 @@ class ExamController extends Controller
      */
     public function create()
     {
+        $courses = Course::All();
 
-        return view('admin.exams.create', $data);
+        return view('admin.exams.create', compact('courses'));
     }
 
     /**
