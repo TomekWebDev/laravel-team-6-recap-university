@@ -48,7 +48,7 @@ class TeacherController extends Controller
         $newTeacher->fill($data);
         $newTeacher->save();
 
-        if(array_key_exists('courses', $data)){
+        if (array_key_exists('courses', $data)) {
             $newTeacher->courses()->sync($data['courses']);
         }
 
@@ -76,7 +76,8 @@ class TeacherController extends Controller
     public function edit($id)
     {
         $elem = Teacher::findOrFail($id);
-        return view('admin.teachers.edit', compact('elem'));
+        $courses = Course::All();
+        return view('admin.teachers.edit', compact('elem', 'courses'));
     }
 
     /**
@@ -92,6 +93,13 @@ class TeacherController extends Controller
         $elem = Teacher::findOrFail($id);
 
         $elem->update($data);
+
+        if (array_key_exists('courses', $data)) {
+            $elem->courses()->sync($data['courses']);
+        } else {
+            $elem->courses()->sync([]);
+        }
+
         return redirect()->route('admin.teachers.show', $elem->id);
     }
 
