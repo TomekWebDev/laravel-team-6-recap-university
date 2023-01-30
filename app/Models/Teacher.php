@@ -16,4 +16,8 @@ class Teacher extends Model
         'office_number'
     ];
 
+    public function courses(){
+        return $this->belongsToMany('App\Models\Course');
+    }
+
 }
